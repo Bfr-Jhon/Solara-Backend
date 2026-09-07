@@ -1,131 +1,152 @@
 # Solara - API de Treinos Personalizados
 
 <p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
+  <a href="https://nestjs.com/" target="blank">
+    <img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" />
+  </a>
 </p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
-
-
 <div align="center">
-      <img src="https://img.shields.io/github/languages/top/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
+  <img src="https://img.shields.io/github/languages/top/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
   <img src="https://img.shields.io/github/repo-size/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
   <img src="https://img.shields.io/github/languages/count/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
   <img src="https://img.shields.io/github/last-commit/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
   <img src="https://img.shields.io/github/issues/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
   <img src="https://img.shields.io/github/issues-pr/grupo6-js13/projeto_fitness_customizado_bkend?style=flat-square" />
-  <img src="https://img.shields.io/badge/status-construção-yellow" alt="Status: Em Construção">
+  <img src="https://img.shields.io/badge/status-em%20produção-green" alt="Status: Em Produção">
 </div>
 
+---
 
 ## 1. Descrição
 
-A Solara é uma plataforma de treinos personalizados desenvolvida pela Orbyte, inspirada na energia e constância das estrelas. O sistema cria rotinas de exercícios adaptadas ao perfil, objetivos e nível de cada usuário, guiando sua evolução física com precisão, consistência e foco. Assim como o Sol é o centro de um sistema, a Solara coloca o usuário no centro da sua própria jornada de saúde.
+A **Solara** é uma plataforma de treinos personalizados desenvolvida pela Orbyte, criada para transformar a prática de exercícios em uma jornada de saúde mais organizada, consistente e personalizada.
 
-## 2. Sobre esta API
+A plataforma permite o gerenciamento de usuários, exercícios e categorias musculares, oferecendo uma estrutura para organização dos treinos de acordo com diferentes perfis e objetivos.
 
-Esta API REST foi desenvolvida utilizando o framework NestJS com TypeScript, com integração a um banco de dados relacional hospedado na nuvem via Neon.
+A API atua como o núcleo responsável pelo processamento e gerenciamento dos dados da aplicação, disponibilizando recursos por meio de endpoints REST consumidos pelo frontend da Solara.
 
-Ela é responsável por gerenciar os dados da aplicação de treinos personalizados Solara, permitindo o cadastro de usuários e a criação, consulta, atualização e remoção de treinos, exercícios e demais informações por meio de endpoints HTTP.
+---
 
-A API segue a arquitetura modular proposta pelo NestJS, organizando o código em controllers, services e módulos, garantindo maior organização, escalabilidade e facilidade de manutenção.
+## 2. Sobre a API
 
-Para documentação e testes interativos dos endpoints, foi utilizada a ferramenta Swagger, permitindo uma visualização clara e acessível dos recursos disponíveis na API.
+Esta API REST foi desenvolvida utilizando **NestJS e TypeScript**, seguindo uma arquitetura modular e organizada por responsabilidades.
 
-A aplicação foi implantada na plataforma de deploy Render, utilizando um banco de dados em nuvem fornecido pelo Neon, garantindo disponibilidade, escalabilidade e facilidade de acesso ao ambiente em produção.
+O backend é responsável pelo gerenciamento dos principais recursos da plataforma, incluindo usuários, exercícios e categorias, permitindo operações de criação, consulta, atualização e remoção de dados.
+
+A aplicação utiliza **TypeORM** para comunicação com o banco de dados relacional e implementa autenticação baseada em **JWT**, garantindo maior segurança no acesso aos recursos protegidos.
+
+A API também utiliza mecanismos de validação de dados e criptografia de senhas, contribuindo para a integridade e segurança das informações armazenadas.
+
+Para documentação e testes dos endpoints, foi utilizada a ferramenta **Swagger**, possibilitando visualizar e testar os recursos disponibilizados pela API.
+
+A aplicação foi preparada para execução em ambiente de produção utilizando a plataforma **Render**, com banco de dados relacional.
 
 ### 2.1. Principais Funcionalidades
 
-<b>1. Gerenciamento de Exercícios</b>
-Permite criar, consultar, atualizar e remover exercícios físicos, possibilitando a organização e personalização dos treinos de acordo com diferentes objetivos e níveis de dificuldade.
+**1. Gerenciamento de Usuários**
 
-<b>2. Gerenciamento de Usuários e Cálculo de IMC</b>
-Possibilita o cadastro e a visualização de usuários, além do cálculo automático do Índice de Massa Corporal (IMC), fornecendo uma base para recomendações e acompanhamento da evolução física.
+Permite cadastrar e atualizar usuários, consultar informações do perfil e armazenar métricas corporais como peso, altura e IMC.
 
-<b>3. Gerenciamento de Categorias</b>
-Permite criar e administrar categorias de exercícios (como força, resistência, cardio, entre outros), facilitando a organização e a associação dos exercícios dentro da plataforma.
+**2. Autenticação de Usuários**
 
-------
+Implementa autenticação utilizando credenciais de acesso e geração de token JWT para proteção das rotas que exigem usuário autenticado.
+
+**3. Cálculo de IMC**
+
+O backend realiza automaticamente o cálculo do Índice de Massa Corporal (IMC) com base no peso e altura informados pelo usuário.
+
+**4. Gerenciamento de Exercícios**
+
+Permite criar, consultar, atualizar e excluir exercícios físicos, incluindo informações como nome, imagem, séries, repetições e tempo estimado.
+
+**5. Gerenciamento de Categorias**
+
+Permite criar, consultar, atualizar e excluir categorias de exercícios, possibilitando organizar os exercícios de acordo com grupos musculares ou diferentes objetivos.
+
+**6. Relacionamento entre Categorias e Exercícios**
+
+Os exercícios são associados a categorias, permitindo organizar e consultar os exercícios de acordo com sua classificação.
+
+---
 
 ## 3. Diagrama de Classes
 
-O diagrama abaixo representa a estrutura lógica das entidades da aplicação e seus relacionamentos dentro da API.
+O diagrama abaixo representa a estrutura lógica das principais entidades da aplicação e seus relacionamentos.
 
 ```mermaid
 classDiagram
 
 class Categoria {
-id : number
-nome : string
-descricao : string
-icone : string
-exercicios : Exercicio[]
-+findAll()
-+findById(id)
-+findAllByNome(nome)
-+create(categoria)
-+update(categoria)
-+delete(id)
+  id : number
+  nome : string
+  descricao : string
+  icone : string
+  exercicios : Exercicio[]
+  +findAll()
+  +findById(id)
+  +findAllByNome(nome)
+  +create(categoria)
+  +update(categoria)
+  +delete(id)
 }
 
 class Exercicio {
-id : number
-nome : string
-imagem : string
-serie : number
-repeticao : number
-tempoEstimado : number
-categoria : Categoria
-+findAll()
-+findById(id)
-+findAllByNome(nome)
-+findByRepeticaoMin(repeticao)
-+findByRepeticaoMax(repeticao)
-+create(exercicio)
-+update(exercicio)
-+delete(id)
+  id : number
+  nome : string
+  imagem : string
+  serie : number
+  repeticao : number
+  tempoEstimado : number
+  categoria : Categoria
+  +findAll()
+  +findById(id)
+  +findAllByNome(nome)
+  +findByRepeticaoMin(repeticao)
+  +findByRepeticaoMax(repeticao)
+  +create(exercicio)
+  +update(exercicio)
+  +delete(id)
 }
 
 class Usuario {
-id : number
-nome : string
-usuario : string
-senha : string
-foto : string
-dataNascimento : Date
-peso : number
-altura : number
-imc : number
-+findAll()
-+findById(id)
-+findByUsuario(usuario)
-+findByIMCMaiorQue(imc)
-+findByIMCMenorQue(imc)
-+create(usuario)
-+update(usuario)
-+calcularIMC(peso, altura)
+  id : number
+  nome : string
+  usuario : string
+  senha : string
+  foto : string
+  dataNascimento : Date
+  peso : number
+  altura : number
+  imc : number
+  +findAll()
+  +findById(id)
+  +findByUsuario(usuario)
+  +findByIMCMaiorQue(imc)
+  +findByIMCMenorQue(imc)
+  +create(usuario)
+  +update(usuario)
+  +calcularIMC(peso, altura)
 }
 
-class UsuarioLogin{
-id : number
-nome : string
-usuario : string
-senha : string
-foto: string
-- token : string
-+login(usuario, senha)
+class UsuarioLogin {
+  id : number
+  nome : string
+  usuario : string
+  senha : string
+  foto : string
+  token : string
+  +login(usuario, senha)
 }
 
-Exercicio --> Categoria : categorizado por
+Categoria --> Exercicio : classifica
 ```
-----
 
-
+---
 
 ## 4. Diagrama Entidade-Relacionamento (DER)
 
-O DER representa como os dados estão organizados no banco relacional e como as entidades se relacionam.
+O DER representa a estrutura dos dados armazenados no banco relacional e o relacionamento entre as entidades da aplicação.
 
 ```mermaid
 erDiagram
@@ -133,226 +154,333 @@ erDiagram
 CATEGORIA ||--o{ EXERCICIO : possui
 
 TB_CATEGORIAS {
-int id PK
-varchar(100) nome
-varchar(255) descricao
-varchar(1000) icone
+  int id PK
+  varchar(100) nome
+  varchar(255) descricao
+  varchar(1000) icone
 }
 
 TB_EXERCICIOS {
-int id PK
-varchar(255) nome
-varchar(500) imagem
-int serie
-int repeticao
-int tempoEstimado
-int categoria_id FK
+  int id PK
+  varchar(255) nome
+  varchar(500) imagem
+  int serie
+  int repeticao
+  int tempoEstimado
+  int categoria_id FK
 }
 
 TB_USUARIOS {
-int id PK
-varchar(255) nome
-varchar(255) usuario
-varchar(255) senha
-varchar(5000) foto
-date dataNascimento
-decimal peso
-decimal altura
-decimal imc
+  int id PK
+  varchar(255) nome
+  varchar(255) usuario
+  varchar(255) senha
+  varchar(5000) foto
+  date dataNascimento
+  decimal peso
+  decimal altura
+  decimal imc
 }
 ```
-----
 
-## 5. Tecnologias utilizadas
+---
 
-| Item                         | Descrição                         |
-| ---------------------------- | --------------------------------- |
-| **Servidor**                 | Node JS                           |
-| **Linguagem de programação** | TypeScript                        |
-| **Framework**                | Nest JS                           |
-| **Arquitetura**              | Modular + REST                    |
-| **ORM**                      | TypeORM                           |
-| **Banco de dados**           | MySQL                             |
-| **Autenticação**             | Passport                          |
-| **Validação**                | class-validator + class-transform |
-| **Testes**                   | Insomnia                          |
+## 5. Tecnologias Utilizadas
 
-------
+| Item               | Descrição                           |
+| ------------------ | ----------------------------------- |
+| **Linguagem**      | TypeScript                          |
+| **Runtime**        | Node.js                             |
+| **Framework**      | NestJS                              |
+| **Arquitetura**    | Modular + REST                      |
+| **ORM**            | TypeORM                             |
+| **Banco de dados** | MySQL                               |
+| **Autenticação**   | Passport + JWT                      |
+| **Criptografia**   | Bcrypt                              |
+| **Validação**      | class-validator + class-transformer |
+| **Documentação**   | Swagger                             |
+| **Testes de API**  | Insomnia                            |
+| **Deploy**         | Render                              |
 
-
+---
 
 ## 6. Arquitetura do Projeto
 
-O projeto foi desenvolvido utilizando a arquitetura modular proposta pelo **NestJS**, promovendo organização, escalabilidade e facilidade de manutenção do código.
+O projeto segue a arquitetura modular proposta pelo **NestJS**, separando as responsabilidades da aplicação em diferentes módulos e camadas.
 
-Cada domínio da aplicação é isolado em um módulo próprio, contendo suas responsabilidades bem definidas:
+Essa abordagem facilita a manutenção, escalabilidade e evolução do sistema.
 
-* **Controller** → recebe e trata requisições HTTP
-* **Service** → contém as regras de negócio
-* **Entity** → representa as tabelas do banco de dados
-* **Repository/ORM** → comunicação com o banco (via TypeORM)
+A estrutura principal segue a divisão:
 
-Essa separação facilita testes, evolução do sistema e reutilização de código.
+* **Controller** → recebe e processa as requisições HTTP
+* **Service** → concentra as regras de negócio
+* **Entity** → representa as entidades e tabelas do banco de dados
+* **Module** → organiza cada domínio funcional da aplicação
+* **Repository/ORM** → realiza a comunicação com o banco de dados através do TypeORM
 
+A separação entre as camadas reduz o acoplamento e facilita a implementação de novas funcionalidades.
 
+---
 
 ## 7. Estrutura de Pastas
 
-A organização segue o padrão recomendado pelo NestJS:
+A aplicação segue uma organização modular baseada nas funcionalidades do sistema:
 
-```bash
-📦src
- ┣ 📂auth
- ┣ 📂usuario
- ┣ 📂veiculo
- ┣ 📂viagem
- ┣ 📜app.controller.ts
- ┣ 📜app.module.ts
- ┣ 📜app.service.ts
- ┗ 📜main.ts
+```plaintext
+src/
+│
+├── auth/
+│   ├── guards/
+│   ├── strategies/
+│   └── auth.module.ts
+│
+├── usuario/
+│   ├── controllers/
+│   ├── entities/
+│   ├── services/
+│   └── usuario.module.ts
+│
+├── categoria/
+│   ├── controllers/
+│   ├── entities/
+│   ├── services/
+│   └── categoria.module.ts
+│
+├── exercicio/
+│   ├── controllers/
+│   ├── entities/
+│   ├── services/
+│   └── exercicio.module.ts
+│
+├── app.controller.ts
+├── app.module.ts
+├── app.service.ts
+└── main.ts
 ```
 
 ### Organização por módulo
 
+Cada domínio possui suas próprias responsabilidades.
+
 Exemplo:
 
-```bash
-📦usuario
- ┣ 📂controllers
- ┃ ┗ 📜usuario.controller.ts
- ┣ 📂entities
- ┃ ┗ 📜usuario.entity.ts
- ┣ 📂services
- ┃ ┗ 📜usuario.service.ts
- ┗ 📜usuario.module.ts
+```plaintext
+usuario/
+│
+├── controllers/
+│   └── usuario.controller.ts
+│
+├── entities/
+│   └── usuario.entity.ts
+│
+├── services/
+│   └── usuario.service.ts
+│
+└── usuario.module.ts
 ```
 
-Esse padrão permite crescimento do sistema sem acoplamento excessivo entre funcionalidades.
+Essa estrutura permite que novas funcionalidades sejam adicionadas sem comprometer a organização das demais partes da aplicação.
+
+---
 
 ## 8. Fluxo de Autenticação (JWT)
 
-A autenticação da API utiliza **JSON Web Token (JWT)** para proteger rotas sensíveis.
+A autenticação da API utiliza **JSON Web Token (JWT)** para controlar o acesso às rotas protegidas.
 
 ### Fluxo geral:
 
-1. O usuário realiza login informando credenciais
-2. A API valida os dados
-3. Um token JWT é gerado
-4. O cliente envia o token no header das próximas requisições:
+1. O usuário envia suas credenciais para o endpoint de login.
+2. A API verifica os dados informados.
+3. A senha é validada utilizando a estrutura de autenticação implementada.
+4. Um token JWT é gerado após a autenticação.
+5. O cliente envia o token nas próximas requisições.
+6. Os Guards do NestJS verificam a validade do token.
+7. Caso o token seja válido, a requisição pode prosseguir.
+
+O token é enviado no cabeçalho HTTP:
 
 ```http
 Authorization: Bearer TOKEN
 ```
 
-5. Os Guards do NestJS validam o token antes de permitir acesso às rotas protegidas.
-
-Esse modelo é amplamente utilizado em aplicações modernas por ser:
-
-* Stateless
-* Escalável
-* Compatível com APIs REST
+Esse modelo permite uma autenticação **stateless**, adequada para aplicações que utilizam APIs REST e clientes independentes, como aplicações web e mobile.
 
 ---
 
-## 9. Validação de Dados
+## 9. Validação e Segurança de Dados
 
-A aplicação utiliza:
+A aplicação utiliza recursos do ecossistema NestJS para garantir maior segurança e confiabilidade no processamento dos dados.
+
+### Validação
+
+São utilizados:
 
 * `class-validator`
 * `class-transformer`
 
-para garantir integridade dos dados recebidos pela API.
+Essas ferramentas permitem validar os dados recebidos antes que sejam processados pelas regras de negócio.
 
-Exemplo conceitual:
+Entre os benefícios estão:
 
-* Campos obrigatórios são verificados automaticamente
-* Tipos inválidos são rejeitados antes da regra de negócio
-* Respostas de erro seguem padrão HTTP
+* Validação de campos obrigatórios
+* Verificação dos tipos de dados
+* Tratamento de entradas inválidas
+* Padronização das respostas de erro
 
-Isso reduz erros e aumenta a confiabilidade da API.
+### Criptografia de senhas
 
-
+As senhas dos usuários são protegidas utilizando **Bcrypt**, evitando que sejam armazenadas diretamente em formato legível no banco de dados.
 
 ---
 
-## 10. Boas Práticas Aplicadas
+## 10. Endpoints Principais
 
-Durante o desenvolvimento foram aplicados conceitos utilizados em projetos reais:
+| Método   | Endpoint                 | Descrição                 |
+| -------- | ------------------------ | ------------------------- |
+| `POST`   | `/usuarios/cadastrar`    | Cadastro de usuário       |
+| `POST`   | `/usuarios/logar`        | Autenticação de usuário   |
+| `PUT`    | `/usuarios`              | Atualização de usuário    |
+| `GET`    | `/exercicios`            | Lista todos os exercícios |
+| `GET`    | `/exercicios/:id`        | Busca exercício por ID    |
+| `GET`    | `/exercicios/nome/:nome` | Busca exercícios por nome |
+| `POST`   | `/exercicios`            | Cria um exercício         |
+| `PUT`    | `/exercicios`            | Atualiza um exercício     |
+| `DELETE` | `/exercicios/:id`        | Remove um exercício       |
+| `GET`    | `/categorias`            | Lista todas as categorias |
+| `GET`    | `/categorias/:id`        | Busca categoria por ID    |
+| `POST`   | `/categorias`            | Cria uma categoria        |
+| `PUT`    | `/categorias`            | Atualiza uma categoria    |
+| `DELETE` | `/categorias/:id`        | Remove uma categoria      |
 
-* Organização modular do NestJS
+A documentação completa dos endpoints pode ser consultada através do **Swagger** disponibilizado pela aplicação.
 
-* Separação entre controller e regras de negócio
+---
 
+## 11. Documentação da API
+
+A API utiliza **Swagger** para disponibilizar uma documentação interativa dos endpoints.
+
+A ferramenta permite:
+
+* Visualizar os endpoints disponíveis
+* Consultar parâmetros e respostas
+* Verificar métodos HTTP
+* Testar requisições diretamente pela documentação
+* Facilitar a integração entre frontend e backend
+
+Essa documentação também auxilia no desenvolvimento e manutenção da API.
+
+---
+
+## 12. Boas Práticas Aplicadas
+
+Durante o desenvolvimento foram utilizados conceitos e práticas comuns em projetos backend modernos:
+
+* Organização modular utilizando NestJS
+* Separação entre Controllers e Services
 * Tipagem forte com TypeScript
-
-* Padronização REST
-
-* Autenticação baseada em token
-
-* Estrutura preparada para escalabilidade
-
-  
-
----
-
-## 11. Diferenciais Técnicos
-
-Este projeto demonstra competências importantes para desenvolvimento backend moderno:
-
-✅ Construção de API REST com NestJS
-✅ Arquitetura modular escalável
-✅ Autenticação JWT
-✅ Modelagem relacional (Usuário → Viagem ← Veículo)
-✅ Integração com banco de dados MySQL via TypeORM
-✅ Validação automática de dados com class-validator
-✅ Criptografia de senha utilizando Bcrypt
-✅ Implementação de regras de negócio no backend (cálculo automático de preço e tempo estimado da viagem)
-✅ Uso profissional de TypeScript no backend
-
-
+* Arquitetura baseada em API REST
+* Uso de DTOs e validação de dados
+* Autenticação baseada em JWT
+* Criptografia de senhas com Bcrypt
+* Separação das entidades do banco de dados
+* Utilização de ORM através do TypeORM
+* Organização por domínio de negócio
+* Documentação dos endpoints com Swagger
+* Preparação da aplicação para ambiente de produção
 
 ---
 
-## 12. Requisitos
+## 13. Diferenciais Técnicos
 
-Para executar o projeto localmente:
+Este projeto demonstra competências importantes para desenvolvimento backend:
 
-- Node.js 18+
-
-- npm
-
-- MySQL
-
-- Insomnia
-
-  
-
-------
-
-## 13. Configuração e Execução
-
-1. Clone o repositório: https://github.com/grupo6-js13/projeto_fitness_customizado_bkend
-
-2. Instale as dependências: `npm install`
-
-
-3. Configure o banco de dados no arquivo `app.module.ts` (ou via variáveis de ambiente, se aplicável)
-
-4. Execute a aplicação: `npm run start:dev`
+✅ Construção de API REST utilizando NestJS
+✅ Desenvolvimento com TypeScript
+✅ Arquitetura modular e escalável
+✅ Autenticação utilizando JWT e Passport
+✅ Criptografia de senhas utilizando Bcrypt
+✅ Modelagem relacional de usuários, categorias e exercícios
+✅ Integração com banco de dados MySQL através do TypeORM
+✅ Implementação de operações CRUD completas
+✅ Validação de dados com `class-validator`
+✅ Cálculo automático de IMC no backend
+✅ Relacionamento entre entidades utilizando ORM
+✅ Documentação interativa através do Swagger
+✅ Deploy da aplicação em ambiente de produção utilizando Render
+✅ Integração com frontend React/TypeScript
 
 ---
 
-### 🔗 Acesso à API
+## 14. Requisitos
 
-- Produção: https://projeto-fitness-customizado-bkend-mv9i.onrender.com  
-  
----------
-## 14. Autores
+Para executar o projeto localmente, é necessário possuir:
 
-**Orbyte - Onde as ideias orbitam em torno de conhecimento e tecnologia**
+* Node.js 18+
+* npm
+* MySQL
+* Insomnia ou ferramenta similar para testes da API
 
-🔗 **GitHub:** https://github.com/grupo6-js13/
+---
 
-🔗 **E-mail:** grupo6js13@gmail.com 
+## 15. Configuração e Execução
 
-Projeto desenvolvido para **aprendizado contínuo**, **demonstração técnica** e **portfólio profissional**.
+### Clone o repositório
+
+```bash
+git clone https://github.com/Bfr_Jhon/solara-backend
+cd projeto_fitness_customizado_bkend
+```
+
+### Instale as dependências
+
+```bash
+npm install
+```
+
+### Configure o banco de dados
+
+Configure as informações de conexão com o banco de dados no arquivo de configuração da aplicação ou através das variáveis de ambiente utilizadas pelo projeto.
+
+Exemplo:
+
+```env
+DB_HOST=localhost
+DB_PORT=3306
+DB_USERNAME=root
+DB_PASSWORD=sua_senha
+DB_DATABASE=solara
+JWT_SECRET=sua_chave_secreta
+```
+
+### Execute a aplicação em modo de desenvolvimento
+
+```bash
+npm run start:dev
+```
+
+Após iniciar o servidor, a API estará disponível localmente para receber as requisições.
+
+---
+
+## 16. Acesso à API
+
+### Produção
+
+🔗 **API:** https://projeto-fitness-customizado-bkend-mv9i.onrender.com
+
+### Repositório
+
+🔗 **GitHub:** https://github.com/grupo6-js13/projeto_fitness_customizado_bkend
+
+---
+
+## 17. Autor
+
+**Jhonatha Oliveira**
+
+🔗 **GitHub:** https://github.com/Bfr-Jhon/
+
+🔗 **LinkedIn:** https://www.linkedin.com/in/jhonatha-oliveira/
+
+Projeto desenvolvido para **aprendizado contínuo**, **demonstração técnica** e **portfólio profissional**, como parte do desenvolvimento da plataforma Solara Fitness.
