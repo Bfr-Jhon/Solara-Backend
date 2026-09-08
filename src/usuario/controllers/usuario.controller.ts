@@ -5,6 +5,7 @@ import { JwtAuthGuard } from "../../auth/guard/jwt-auth.guard";
 import { ApiBearerAuth } from '@nestjs/swagger';
 
 
+
 @Controller("/usuarios")
 export class UsuarioController{
 
