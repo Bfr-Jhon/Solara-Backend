@@ -28,7 +28,7 @@ A API atua como o núcleo responsável pelo processamento e gerenciamento dos da
 
 ---
 
-## 2. Sobre a API
+## 2. Sobre a API 
 
 Esta API REST foi desenvolvida utilizando **NestJS e TypeScript**, seguindo uma arquitetura modular e organizada por responsabilidades.
 
