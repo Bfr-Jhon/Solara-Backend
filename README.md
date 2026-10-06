@@ -1,4 +1,4 @@
-#Solara - API de Treinos Personalizados
+# Solara - API de Treinos Personalizados
 
 <p align="center">
   <a href="https://nestjs.com/" target="blank">
